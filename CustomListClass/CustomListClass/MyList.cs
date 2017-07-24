@@ -7,15 +7,11 @@ using System.Threading.Tasks;
 
 namespace CustomListClass
 {
-    public class MyList<T> : IEnumerator<T>
+    public class MyList<T>
     {
         T[] arrayList;
         int arraySize;
         int arrayCapacity;
-
-        public T Current => throw new NotImplementedException();
-
-        object IEnumerator.Current => throw new NotImplementedException();
 
         //indexer
         public T this[int index]
@@ -63,34 +59,15 @@ namespace CustomListClass
             arraySize++;
         }
 
-        public void Remove()
+        public void Remove(T item)
         {
 
         }
+    
 
         public int Count()
         {
             int count = 0;
-            //if (arraySize == arrayCapacity)
-            //{
-            //    if (arrayCapacity == 0)
-            //    {
-            //        arrayCapacity = 4;
-            //    }
-            //    else
-            //    {
-            //        arrayCapacity = arrayCapacity * 2;
-            //    }
-
-            //    T[] tempArray = new T[arrayCapacity];
-
-            //    for (int i = 0; i < arraySize; i++)
-            //    {
-            //        tempArray[i] = arrayList[i];
-            //        count++;
-            //    }
-            //    arrayList = tempArray;
-            //}
             T[] tempArray = new T[arrayCapacity];
 
             for (int i = 0; i < arraySize; i++)
@@ -101,19 +78,5 @@ namespace CustomListClass
             return count;
         }
 
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool MoveNext()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Reset()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
