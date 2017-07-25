@@ -13,7 +13,6 @@ namespace CustomListClass
         int arraySize;
         int arrayCapacity;
 
-        //indexer
         public T this[int index]
         {
             get
@@ -33,13 +32,20 @@ namespace CustomListClass
             arrayList = new T[arraySize];
         }
 
+        public MyList(T[] arrayList)
+        {
+            arraySize = 0;
+            arrayCapacity = 0;
+            this.arrayList = arrayList;
+        }
+
         public void Add(T item)
         {
             if (arraySize == arrayCapacity)
             {
                if (arrayCapacity == 0)
                 {
-                    arrayCapacity = 4;
+                    arrayCapacity = 2;
                 }
                else
                 {
@@ -89,5 +95,10 @@ namespace CustomListClass
 
             return arrayString;
         }
+
+        //public static MyList operator +(MyList l1, MyList l2)
+        //{
+        //    return new MyList(l1.listOne + l2.listOne, l1.listTwo + l2.listTwo);
+        //}
     }
 }

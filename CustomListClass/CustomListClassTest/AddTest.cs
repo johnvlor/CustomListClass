@@ -56,6 +56,20 @@ namespace CustomListClassTest
         }
 
         [TestMethod]
+        public void Add_UsingInitializer_IndexThree()
+        {
+            MyList<int> myList = new MyList<int>(new int[] { 0, 1, 2, 3, 4, 5 });
+
+            //Arrange
+            int result = 3;
+
+            //Act
+
+            //Assert
+            Assert.AreEqual(result, myList[3]);
+        }
+
+        [TestMethod]
         public void Add_UsingLoop_IndexNine()
         {
             MyList<int> myList = new MyList<int>();

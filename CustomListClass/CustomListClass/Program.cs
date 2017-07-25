@@ -27,7 +27,6 @@ namespace CustomListClass
             //Console.WriteLine("Count " + myList.Count());
 
             int num = 10;
-            int result = 9;
 
             for (int i = 0; i < num; i++)
             {
@@ -60,10 +59,13 @@ namespace CustomListClass
             newStringResult = myStringList.ToString();
             Console.WriteLine(newStringResult);
 
-            //MyList<int> newList = new MyList<int>() { 0, 1, 2, 3, 4, 5 };
+            MyList<int> myNewList = new MyList<int>(new int[] { 0, 1, 2, 3, 4, 5 });
+            Console.WriteLine(myNewList[4]);
+            Console.WriteLine(myNewList[5]);
+            Console.WriteLine(myNewList[2]);
             string newResult;
 
-            newResult = myList.ToString();
+            newResult = myNewList.ToString();
             Console.WriteLine(newResult);
 
             Console.ReadKey();

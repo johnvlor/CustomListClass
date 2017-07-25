@@ -11,7 +11,7 @@ namespace CustomListClassTest
         public void ToString_ConvertIntIntoOneString()
         {
             //Arrange
-            MyList<int> myList = new MyList<int>() { 0, 1, 2, 3, 4, 5 };
+            MyList<int> myList = new MyList<int>(new int[] { 0, 1, 2, 3, 4, 5 });
             string result;
             string resultList = "012345";
 
@@ -26,7 +26,7 @@ namespace CustomListClassTest
         public void ToString_ConvertStringIntoOneString()
         {
             //Arrange
-            MyList<string> myList = new MyList<string>() { "a", "b", "c" };
+            MyList<string> myList = new MyList<string>(new string[] { "a", "b", "c" });
             string result;
             string resultList = "abc";
 
