@@ -44,6 +44,7 @@ namespace CustomListClass
             Console.WriteLine(myList[7]);
             Console.WriteLine(myList[8]);
             Console.WriteLine(myList[9]);
+            Console.WriteLine("Count " + myList.Count());
 
             MyList<string> myStringList = new MyList<string>();
 
@@ -54,12 +55,16 @@ namespace CustomListClass
             Console.WriteLine(myStringList[0]);
             Console.WriteLine(myStringList[1]);
             Console.WriteLine(myStringList[2]);
+            string newStringResult;
 
-            //MyList<int> myListOne = new MyList<int>() { 0, 1, 2, 3, 4, 5 };
+            newStringResult = myStringList.ToString();
+            Console.WriteLine(newStringResult);
 
-            //Console.WriteLine(myListOne[0]);
-            //Console.WriteLine(myListOne[1]);
-            //Console.WriteLine(myListOne[2]);
+            //MyList<int> newList = new MyList<int>() { 0, 1, 2, 3, 4, 5 };
+            string newResult;
+
+            newResult = myList.ToString();
+            Console.WriteLine(newResult);
 
             Console.ReadKey();
 

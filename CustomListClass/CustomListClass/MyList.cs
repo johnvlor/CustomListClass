@@ -78,5 +78,16 @@ namespace CustomListClass
             return count;
         }
 
+        public override string ToString()
+        {
+            string arrayString = "";
+
+            for (int i = 0; i < arraySize; i++)
+            {
+                arrayString = arrayString + arrayList[i];
+            }
+
+            return arrayString;
+        }
     }
 }

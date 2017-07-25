@@ -16,7 +16,7 @@ namespace CustomListClassTest
             string resultList = "012345";
 
             //Act
-            result = ToString(myList);
+            result = myList.ToString();
 
             //Assert     
             Assert.AreEqual(resultList, result);
@@ -31,7 +31,7 @@ namespace CustomListClassTest
             string resultList = "abc";
 
             //Act
-            result = ToString(myList);
+            result = myList.ToString();
 
             //Assert     
             Assert.AreEqual(resultList, result);

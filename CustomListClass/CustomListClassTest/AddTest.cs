@@ -110,18 +110,5 @@ namespace CustomListClassTest
             Assert.AreEqual(playerListTwo, playerList[1]);
         }
 
-        [TestMethod]
-        public void Remove_ReturnFalse_UnableToRemove()
-        {
-            MyList<int> myList = new MyList<int>();
-
-            //Arrange
-
-            //Act
-            myList.Remove[0];
-
-            //Assert
-            Assert.IsTrue(false);
-        }
     }
 }

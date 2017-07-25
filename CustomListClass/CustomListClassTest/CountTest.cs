@@ -22,7 +22,7 @@ namespace CustomListClassTest
             myList.Add(6);
 
             //Assert
-            Assert.AreEqual(result, myList.Count);
+            Assert.AreEqual(result, myList.Count());
         }
 
         [TestMethod]
@@ -41,7 +41,7 @@ namespace CustomListClassTest
             myList.Add("BabyFinger");
 
             //Assert
-            Assert.AreEqual(result, myList.Count);
+            Assert.AreEqual(result, myList.Count());
         }
 
         [TestMethod]
@@ -61,7 +61,7 @@ namespace CustomListClassTest
             playerList.Add(playerListThree);
 
             //Assert
-            Assert.AreEqual(result, playerList.Count);
+            Assert.AreEqual(result, playerList.Count());
         }
 
     }
