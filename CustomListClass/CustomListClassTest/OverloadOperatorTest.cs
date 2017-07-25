@@ -16,7 +16,8 @@ namespace CustomListClassTest
         //    int result = 8;
 
         //    //Act
-        //    MyList<int> resultList = myListOne + myListTwo;
+        //    MyList<int> resultList = new MyList<int>();
+        //    resultList = myListOne + myListTwo;
 
         //    //Assert     
         //    Assert.AreEqual(result, resultList[8]);

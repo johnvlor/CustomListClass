@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomListClass
 {
-    public class MyList<T>
+    public class MyList<T> : IEnumerable<T>
     {
         T[] arrayList;
         int arraySize;
@@ -30,24 +30,18 @@ namespace CustomListClass
             arraySize = 0;
             arrayCapacity = 0;
             arrayList = new T[arraySize];
-        }
-
-        public MyList(T[] arrayList)
-        {
-            arraySize = 0;
-            arrayCapacity = 0;
-            this.arrayList = arrayList;
+            arrayList = new T[] { };
         }
 
         public void Add(T item)
         {
             if (arraySize == arrayCapacity)
             {
-               if (arrayCapacity == 0)
+                if (arrayCapacity == 0)
                 {
                     arrayCapacity = 2;
                 }
-               else
+                else
                 {
                     arrayCapacity = arrayCapacity * 2;
                 }
@@ -67,18 +61,37 @@ namespace CustomListClass
 
         public void Remove(T item)
         {
-
-        }
-    
-
-        public int Count()
-        {
             int count = 0;
+
             T[] tempArray = new T[arrayCapacity];
 
             for (int i = 0; i < arraySize; i++)
             {
-                tempArray[i] = arrayList[i];
+                if (AreEqual<T>(item, arrayList[count]) == false)
+                {
+                    tempArray[i] = arrayList[count];
+                }
+                else
+                {
+                    i--;
+                    arraySize--;
+                }
+                count++;
+            }
+            arrayList = tempArray;
+        }
+
+        public static bool AreEqual<T>(T item1, T item2)
+        {
+            return EqualityComparer<T>.Default.Equals(item1, item2);
+        }
+
+        public int Count()
+        {
+            int count = 0;
+
+            for (int i = 0; i < arraySize; i++)
+            {
                 count++;
             }
             return count;
@@ -96,9 +109,23 @@ namespace CustomListClass
             return arrayString;
         }
 
-        //public static MyList operator +(MyList l1, MyList l2)
-        //{
-        //    return new MyList(l1.listOne + l2.listOne, l1.listTwo + l2.listTwo);
-        //}
+        public IEnumerator<T> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static MyList<T> operator +(MyList<T> l1, MyList<T> l2)
+        {
+            MyList<T> myList = new MyList<T>();
+
+            myList = l1 + l2;
+
+            return myList;
+        }
     }
 }

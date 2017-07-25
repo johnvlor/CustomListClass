@@ -58,7 +58,7 @@ namespace CustomListClassTest
         [TestMethod]
         public void Add_UsingInitializer_IndexThree()
         {
-            MyList<int> myList = new MyList<int>(new int[] { 0, 1, 2, 3, 4, 5 });
+            MyList<int> myList = new MyList<int>(){ 0, 1, 2, 3, 4, 5 };
 
             //Arrange
             int result = 3;

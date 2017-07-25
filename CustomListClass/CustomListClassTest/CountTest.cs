@@ -26,6 +26,20 @@ namespace CustomListClassTest
         }
 
         [TestMethod]
+        public void Count_UsingInitalizer_ReturnCount()
+        {
+            MyList<int> myList = new MyList<int>() { 0, 1, 2, 3, 4, 5 }; ;
+
+            //Arrange
+            int result = 6;
+
+            //Act
+
+            //Assert
+            Assert.AreEqual(result, myList.Count());
+        }
+
+        [TestMethod]
         public void Count_String_ReturnCount()
         {
             MyList<string> myList = new MyList<string>();
