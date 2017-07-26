@@ -26,15 +26,6 @@ namespace CustomListClass
             }
         }
 
-        public MyList()
-        {
-            count = 0;
-            arraySize = 0;
-            arrayCapacity = 0;
-            arrayList = new T[arraySize];
-            arrayList = new T[] { };
-        }
-
         public int Count
         {
             get
@@ -44,22 +35,25 @@ namespace CustomListClass
                 {
                     count++;
                 }
+                Console.WriteLine("size "+ arraySize);
                 return count;
             }
+        }
+
+        public MyList()
+        {
+            count = 0;
+            arraySize = 0;
+            arrayCapacity = 0;
+            arrayList = new T[arraySize];
+            arrayList = new T[] { };
         }
 
         public void Add(T item)
         {
             if (arraySize == arrayCapacity)
             {
-                if (arrayCapacity == 0)
-                {
-                    arrayCapacity = 2;
-                }
-                else
-                {
-                    arrayCapacity = arrayCapacity * 2;
-                }
+                CheckArrayCapacity();
 
                 T[] tempArray = new T[arrayCapacity];
 
@@ -74,6 +68,21 @@ namespace CustomListClass
             arraySize++;
         }
 
+        public int CheckArrayCapacity()
+        {
+            if (arrayCapacity == 0)
+            {
+                arrayCapacity = 2;
+            }
+            else
+            {
+                arrayCapacity = arrayCapacity * 2;
+            }
+
+            return arrayCapacity;
+
+        }
+
         public void Remove(T item)
         {
             int count = 0;
@@ -82,7 +91,7 @@ namespace CustomListClass
 
             for (int i = 0; i < arraySize; i++)
             {
-                if (AreEqual<T>(item, arrayList[count]) == false)
+                if (Equal<T>(item, arrayList[count]) == false)
                 {
                     tempArray[i] = arrayList[count];
                 }
@@ -96,7 +105,7 @@ namespace CustomListClass
             arrayList = tempArray;
         }
 
-        public static bool AreEqual<T>(T item1, T item2)
+        public static bool Equal<T>(T item1, T item2)
         {
             return EqualityComparer<T>.Default.Equals(item1, item2);
         }
@@ -129,15 +138,24 @@ namespace CustomListClass
             //throw new NotImplementedException();
         }
 
-        //public static MyList<T> operator +(MyList<T> l1, MyList<T> l2)
+        //public static MyList<T> operator +(MyList<T> list1, MyList<T> list2)
         //{
-        //    MyList<T> myList = new MyList<T>();
+        //    MyList<T> oneList = new MyList<T>();
 
-        //    string list1 = l1.ToString();
-        //    string list2 = l2.ToString();
-        //    //string result = list1 + list2;
+        //    for (int i = 0; i < list1.arraySize; i++)
+        //    {
+        //        oneList[i] = list1[i];
+        //    }
 
-        //    return (list1, list2);
+        //    int count = list1.arraySize;
+
+        //    for (int i = 0; i < list2.arraySize; i++)
+        //    {
+        //        oneList.Add(list2[i]);
+        //        //count++;
+        //    }
+
+        //    return oneList;
         //}
     }
 }

@@ -82,14 +82,15 @@ namespace CustomListClass
             //newResult = myNewList.ToString();
             //Console.WriteLine(newResult);
 
-            MyList<int> myListOne = new MyList<int>() { 0, 1, 2, 3, 4, 5 };
+            MyList<int> myListOne = new MyList<int>() { 0, 1, 2, 3, 4, 5, 6 };
+            Console.WriteLine(myListOne.Count);
             MyList<int> myListTwo = new MyList<int>() { 6, 7, 8, 9, 10 };
 
             MyList<int> resultList = new MyList<int>();
             //resultList = myListOne + myListTwo;
 
             //Console.WriteLine(myListOne.ToString() + myListTwo.ToString());
-            Console.WriteLine(resultList.ToString());
+            Console.WriteLine("result list "+resultList.ToString());
             Console.WriteLine(resultList.Count);
 
 
