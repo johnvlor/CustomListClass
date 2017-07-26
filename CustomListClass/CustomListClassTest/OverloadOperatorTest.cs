@@ -39,7 +39,7 @@ namespace CustomListClassTest
         }
 
         [TestMethod]
-        public void AddInt_MultipleList_CombinesAllList()
+        public void AddInt_MultipleLists_CombinesAllList()
         {
             MyList<int> resultList = new MyList<int>();
 
@@ -78,56 +78,72 @@ namespace CustomListClassTest
             Assert.AreEqual(playerTwo, playerList[1]);
         }
 
-        //[TestMethod]
-        //public void SubtractInt_OverloadMinusOperator_SubtractOneListFromAnother()
-        //{
-        //    //Arrange
-        //    MyList<int> myListOne = new MyList<int>() { 0, 1, 2, 3, 4, 5 };
-        //    MyList<int> myListTwo = new MyList<int>() { 0, 1, 2 };
-        //    int result = 4;
+        [TestMethod]
+        public void SubtractInt_OverloadMinusOperator_SubtractOneListFromAnother()
+        {
+            //Arrange
+            MyList<int> myListOne = new MyList<int>() { 0, 1, 2, 3, 4, 5 };
+            MyList<int> myListTwo = new MyList<int>() { 0, 1, 2 };
+            int result = 4;
 
-        //    //Act
-        //    MyList<int> resultList = myListOne - myListTwo;
+            //Act
+            MyList<int> resultList = myListOne - myListTwo;
 
-        //    //Assert     
-        //    Assert.AreEqual(result, resultList[1]);
-        //}
+            //Assert     
+            Assert.AreEqual(result, resultList[1]);
+        }
 
-        //[TestMethod]
-        //public void SubtractString_OverloadMinusOperator_SubtractOneListFromAnother()
-        //{
-        //    //Arrange
-        //    MyList<string> myListOne = new MyList<string>() { "a", "b", "c", "d", "e", "f" };
-        //    MyList<string> myListTwo = new MyList<string>() { "b", "d", "f" };
-        //    string result = "e";
+        [TestMethod]
+        public void SubtractString_OverloadMinusOperator_SubtractOneListFromAnother()
+        {
+            //Arrange
+            MyList<string> myListOne = new MyList<string>() { "a", "b", "c", "d", "e", "f" };
+            MyList<string> myListTwo = new MyList<string>() { "b", "d", "f" };
+            string result = "e";
 
-        //    //Act
-        //    MyList<string> resultList = myListOne - myListTwo;
+            //Act
+            MyList<string> resultList = myListOne - myListTwo;
 
-        //    //Assert     
-        //    Assert.AreEqual(result, resultList[2]);
-        //}
+            //Assert     
+            Assert.AreEqual(result, resultList[2]);
+        }
 
-        //[TestMethod]
-        //public void SubractObject_OverloadMinusOperator_SubtractOneListFromAnothert()
-        //{
-        //    MyList<Player> playerList = new MyList<Player>();
+        [TestMethod]
+        public void SubtractInt_MultipleLists_SubtractOneListFromAnother()
+        {
+            //Arrange
+            MyList<int> myListOne = new MyList<int>() { 0, 1, 2, 3, 4, 5, 100 };
+            MyList<int> myListTwo = new MyList<int>() { 1, 3, 5 };
+            MyList<int> myListThree = new MyList<int>() { 2, 4 };
+            int result = 100;
 
-        //    //Arrange
-        //    Player playerOne = new Player("James");
-        //    Player playerTwo = new Player("Lebron");
+            //Act
+            MyList<int> resultList = (myListOne - myListTwo) - myListThree;
 
-        //    MyList<Player> playerOneList = new MyList<Player>();
-        //    MyList<Player> playerTwoList = new MyList<Player>();
+            //Assert     
+            Assert.AreEqual(result, resultList[1]);
+        }
 
-        //    playerOneList.Add(playerOne);
-        //    playerTwoList.Add(playerTwo);
+        [TestMethod]
+        public void SubractObject_OverloadMinusOperator_SubtractOneListFromAnothert()
+        {
+            MyList<Player> playerList = new MyList<Player>();
 
-        //    //Act
-        //    playerList = playerOneList - playerTwoList;
+            //Arrange
+            Player playerOne = new Player("James");
+            Player playerTwo = new Player("Lebron");
 
-        //    //Assert     
-        //    Assert.AreEqual(playerTwoList, playerList[2]);
-        //}
+            MyList<Player> playerOneList = new MyList<Player>();
+            MyList<Player> playerTwoList = new MyList<Player>();
+
+            playerOneList.Add(playerOne);
+            playerTwoList.Add(playerTwo);
+
+            //Act
+            playerList = playerOneList - playerTwoList;
+
+            //Assert     
+            Assert.AreEqual(playerTwoList, playerList[2]);
+        }
     }
 }

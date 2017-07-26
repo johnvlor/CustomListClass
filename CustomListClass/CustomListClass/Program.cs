@@ -10,8 +10,9 @@ namespace CustomListClass
     {
         static void Main(string[] args)
         {
-            MyList<int> myList = new MyList<int>();
-            Console.WriteLine(myList.Count());
+            //MyList<int> myList = new MyList<int>();
+            //Console.WriteLine(myList.Count());
+
             //Console.WriteLine("Count " + myList.Count());
             //myList.Add(1);
             //myList.Add(2);
@@ -26,61 +27,61 @@ namespace CustomListClass
             //myList.Add(9);
             //Console.WriteLine("Count " + myList.Count());
 
-            int num = 10;
+            //int num = 10;
 
-            for (int i = 0; i < num; i++)
-            {
-                myList.Add(i);
-            }
+            //for (int i = 0; i < num; i++)
+            //{
+            //    myList.Add(i);
+            //}
 
-            Console.WriteLine(myList[0]);
-            Console.WriteLine(myList[1]);
-            Console.WriteLine(myList[2]);
-            Console.WriteLine(myList[3]);
-            Console.WriteLine(myList[4]);
-            Console.WriteLine(myList[5]);
-            Console.WriteLine(myList[6]);
-            Console.WriteLine(myList[7]);
-            Console.WriteLine(myList[8]);
-            Console.WriteLine(myList[9]);
-            Console.WriteLine("Count " + myList.Count);
-            Console.WriteLine(myList.ToString());
+            //Console.WriteLine(myList[0]);
+            //Console.WriteLine(myList[1]);
+            //Console.WriteLine(myList[2]);
+            //Console.WriteLine(myList[3]);
+            //Console.WriteLine(myList[4]);
+            //Console.WriteLine(myList[5]);
+            //Console.WriteLine(myList[6]);
+            //Console.WriteLine(myList[7]);
+            //Console.WriteLine(myList[8]);
+            //Console.WriteLine(myList[9]);
+            //Console.WriteLine("Count " + myList.Count);
+            //Console.WriteLine(myList.ToString());
 
-            myList.Remove(1);
-            myList.Remove(2);
-            myList.Remove(7);
-            myList.Remove(9);
-            Console.WriteLine("Count " + myList.Count);
-            Console.WriteLine(myList.ToString());
+            //myList.Remove(1);
+            //myList.Remove(2);
+            //myList.Remove(7);
+            //myList.Remove(9);
+            //Console.WriteLine("Count " + myList.Count);
+            //Console.WriteLine(myList.ToString());
 
-            MyList<string> myStringList = new MyList<string>();
+            //MyList<string> myStringList = new MyList<string>();
 
-            myStringList.Add("DaddyFinger");
-            myStringList.Add("MommyFinger");
-            myStringList.Add("BabyFinger");
+            //myStringList.Add("DaddyFinger");
+            //myStringList.Add("MommyFinger");
+            //myStringList.Add("BabyFinger");
 
-            Console.WriteLine(myStringList[0]);
-            Console.WriteLine(myStringList[1]);
-            Console.WriteLine(myStringList[2]);
-            string newStringResult;
+            //Console.WriteLine(myStringList[0]);
+            //Console.WriteLine(myStringList[1]);
+            //Console.WriteLine(myStringList[2]);
+            //string newStringResult;
 
-            newStringResult = myStringList.ToString();
-            Console.WriteLine(newStringResult);
+            //newStringResult = myStringList.ToString();
+            //Console.WriteLine(newStringResult);
 
-            myStringList.Remove("DaddyFinger");
-            newStringResult = myStringList.ToString();
-            Console.WriteLine(newStringResult);
+            //myStringList.Remove("DaddyFinger");
+            //newStringResult = myStringList.ToString();
+            //Console.WriteLine(newStringResult);
 
 
-            MyList<int> myNewList = new MyList<int>() { 0, 1, 2, 3, 4, 5 };
-            Console.WriteLine(myNewList.Count);
-            //Console.WriteLine(myNewList[4]);
-            //Console.WriteLine(myNewList[5]);
-            //Console.WriteLine(myNewList[2]);
-            //string newResult;
+            //MyList<int> myNewList = new MyList<int>() { 0, 1, 2, 3, 4, 5 };
+            //Console.WriteLine(myNewList.Count);
+            ////Console.WriteLine(myNewList[4]);
+            ////Console.WriteLine(myNewList[5]);
+            ////Console.WriteLine(myNewList[2]);
+            ////string newResult;
 
-            //newResult = myNewList.ToString();
-            //Console.WriteLine(newResult);
+            ////newResult = myNewList.ToString();
+            ////Console.WriteLine(newResult);
 
             MyList<int> myListOne = new MyList<int>() { 0, 1, 2, 3, 4, 5, 6 };
             Console.WriteLine(myListOne.Count);
@@ -90,16 +91,31 @@ namespace CustomListClass
             MyList<int> resultList = new MyList<int>();
             resultList = (myListOne + myListTwo) + myListThree;
 
-            //Console.WriteLine(myListOne.ToString() + myListTwo.ToString());
-            Console.WriteLine("result list "+resultList.ToString());
+            Console.WriteLine("result list " + resultList.ToString());
             Console.WriteLine(resultList.Count);
             Console.WriteLine(resultList[14]);
 
             for (int i = 0; i < resultList.Count; i++)
             {
-                Console.WriteLine(i+1+" " +resultList[i]);
+                Console.WriteLine(i + 1 + " " + resultList[i]);
             }
 
+            MyList<int> myListFour = new MyList<int>() { 0, 1, 2, 3, 4, 5, 100 };
+            Console.WriteLine(myListFour[0]);
+            MyList<int> myListFive = new MyList<int>() { 1, 3, 5 };
+            MyList<int> myListSix = new MyList<int>() { 2, 4};
+            resultList = myListFour + myListFive;
+            Console.WriteLine(resultList[0]);
+            resultList = (myListFour - myListFive) - myListSix;
+            Console.WriteLine(resultList[0]);
+            Console.WriteLine("result list " + resultList.ToString());
+            Console.WriteLine(resultList.Count);
+
+            for (int i = 0; i < resultList.Count; i++)
+            {
+
+                Console.WriteLine(i+1 + " " + resultList[i]);
+            }
 
             Console.ReadKey();
 

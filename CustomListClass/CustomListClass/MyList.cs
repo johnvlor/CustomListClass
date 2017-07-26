@@ -153,5 +153,36 @@ namespace CustomListClass
 
             return oneList;
         }
+
+        public static MyList<T> operator -(MyList<T> list1, MyList<T> list2)
+        {
+            MyList<T> oneList = new MyList<T>();
+
+            //for (int i = 0; i < list1.arraySize; i++)
+            //{
+            //    oneList.Add(list1[i]);
+            //}
+
+            //for (int i = 0; i < list2.arraySize; i++)
+            //{
+            //    oneList.Add(list2[i]);
+            //}
+
+            //for (int i = 0; i < oneList.arraySize; i++)
+            //{
+            //    oneList.Remove(list2[i]);
+            //}
+
+            for (int i = 0; i < list1.arraySize; i++)
+            {
+                for (int j = 0; j < list2.arraySize; j++)
+                {
+                    list1.Remove(list2[j]);
+                }
+            }
+
+
+            return list1;
+        }
     }
 }
