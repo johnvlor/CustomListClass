@@ -12,6 +12,7 @@ namespace CustomListClass
         T[] arrayList;
         int arraySize;
         int arrayCapacity;
+        private int count;
 
         public T this[int index]
         {
@@ -27,10 +28,24 @@ namespace CustomListClass
 
         public MyList()
         {
+            count = 0;
             arraySize = 0;
             arrayCapacity = 0;
             arrayList = new T[arraySize];
             arrayList = new T[] { };
+        }
+
+        public int Count
+        {
+            get
+            {
+                count = 0;
+                for (int i = 0; i < arraySize; i++)
+                {
+                    count++;
+                }
+                return count;
+            }
         }
 
         public void Add(T item)
@@ -86,17 +101,6 @@ namespace CustomListClass
             return EqualityComparer<T>.Default.Equals(item1, item2);
         }
 
-        public int Count()
-        {
-            int count = 0;
-
-            for (int i = 0; i < arraySize; i++)
-            {
-                count++;
-            }
-            return count;
-        }
-
         public override string ToString()
         {
             string arrayString = "";
@@ -111,21 +115,29 @@ namespace CustomListClass
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < arraySize; i++)
+            {
+                yield return arrayList[i];
+            }
+
+            //throw new NotImplementedException();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
+            //throw new NotImplementedException();
         }
 
-        public static MyList<T> operator +(MyList<T> l1, MyList<T> l2)
-        {
-            MyList<T> myList = new MyList<T>();
+        //public static MyList<T> operator +(MyList<T> l1, MyList<T> l2)
+        //{
+        //    MyList<T> myList = new MyList<T>();
 
-            myList = l1 + l2;
+        //    string list1 = l1.ToString();
+        //    string list2 = l2.ToString();
+        //    //string result = list1 + list2;
 
-            return myList;
-        }
+        //    return (list1, list2);
+        //}
     }
 }

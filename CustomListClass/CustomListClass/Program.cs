@@ -43,14 +43,14 @@ namespace CustomListClass
             Console.WriteLine(myList[7]);
             Console.WriteLine(myList[8]);
             Console.WriteLine(myList[9]);
-            Console.WriteLine("Count " + myList.Count());
+            Console.WriteLine("Count " + myList.Count);
             Console.WriteLine(myList.ToString());
 
             myList.Remove(1);
             myList.Remove(2);
             myList.Remove(7);
             myList.Remove(9);
-            Console.WriteLine("Count " + myList.Count());
+            Console.WriteLine("Count " + myList.Count);
             Console.WriteLine(myList.ToString());
 
             MyList<string> myStringList = new MyList<string>();
@@ -71,8 +71,9 @@ namespace CustomListClass
             newStringResult = myStringList.ToString();
             Console.WriteLine(newStringResult);
 
-            //MyList<int> myNewList = new MyList<int>() { 0, 1, 2, 3, 4, 5 };
-            //Console.WriteLine(myNewList.Count());
+
+            MyList<int> myNewList = new MyList<int>() { 0, 1, 2, 3, 4, 5 };
+            Console.WriteLine(myNewList.Count);
             //Console.WriteLine(myNewList[4]);
             //Console.WriteLine(myNewList[5]);
             //Console.WriteLine(myNewList[2]);
@@ -81,16 +82,15 @@ namespace CustomListClass
             //newResult = myNewList.ToString();
             //Console.WriteLine(newResult);
 
-            //MyList<int> myListOne = new MyList<int>(){ 0, 1, 2, 3, 4, 5 };
-            //Console.WriteLine(myListOne.Count());
-            //MyList<int> myListTwo = new MyList<int>() { 6, 7, 8, 9, 10 };
+            MyList<int> myListOne = new MyList<int>() { 0, 1, 2, 3, 4, 5 };
+            MyList<int> myListTwo = new MyList<int>() { 6, 7, 8, 9, 10 };
 
-            //MyList<int> resultList = new MyList<int>();
-            //resultList = myListOne;
+            MyList<int> resultList = new MyList<int>();
+            //resultList = myListOne + myListTwo;
 
             //Console.WriteLine(myListOne.ToString() + myListTwo.ToString());
-            //Console.WriteLine(resultList.ToString());
-            //Console.WriteLine(resultList.Count());
+            Console.WriteLine(resultList.ToString());
+            Console.WriteLine(resultList.Count);
 
 
             Console.ReadKey();
