@@ -35,7 +35,6 @@ namespace CustomListClass
                 {
                     count++;
                 }
-                Console.WriteLine("size "+ arraySize);
                 return count;
             }
         }
@@ -138,24 +137,21 @@ namespace CustomListClass
             //throw new NotImplementedException();
         }
 
-        //public static MyList<T> operator +(MyList<T> list1, MyList<T> list2)
-        //{
-        //    MyList<T> oneList = new MyList<T>();
+        public static MyList<T> operator +(MyList<T> list1, MyList<T> list2)
+        {
+            MyList<T> oneList = new MyList<T>();
 
-        //    for (int i = 0; i < list1.arraySize; i++)
-        //    {
-        //        oneList[i] = list1[i];
-        //    }
+            for (int i = 0; i < list1.arraySize; i++)
+            {
+                oneList.Add(list1[i]);
+            }
 
-        //    int count = list1.arraySize;
+            for (int i = 0; i < list2.arraySize; i++)
+            {
+                oneList.Add(list2[i]);
+            }
 
-        //    for (int i = 0; i < list2.arraySize; i++)
-        //    {
-        //        oneList.Add(list2[i]);
-        //        //count++;
-        //    }
-
-        //    return oneList;
-        //}
+            return oneList;
+        }
     }
 }
