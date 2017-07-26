@@ -100,6 +100,15 @@ namespace CustomListClass
                 Console.WriteLine(i + 1 + " " + resultList[i]);
             }
 
+            int value = 0;
+            foreach (int number in resultList)
+            {
+                Console.WriteLine("iterator "+number);
+                value = number;
+            }
+
+            Console.WriteLine(value);
+
             MyList<int> myListFour = new MyList<int>() { 0, 1, 2, 3, 4, 5, 100 };
             Console.WriteLine(myListFour[0]);
             MyList<int> myListFive = new MyList<int>() { 1, 3, 5 };
