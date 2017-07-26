@@ -143,7 +143,7 @@ namespace CustomListClassTest
             playerList = playerOneList - playerTwoList;
 
             //Assert     
-            Assert.AreEqual(playerTwoList, playerList[2]);
+            Assert.AreEqual(playerOneList, playerList);
         }
     }
 }

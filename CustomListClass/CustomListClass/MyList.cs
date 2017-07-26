@@ -155,9 +155,7 @@ namespace CustomListClass
         }
 
         public static MyList<T> operator -(MyList<T> list1, MyList<T> list2)
-        {
-            MyList<T> oneList = new MyList<T>();
-
+        {            
             for (int i = 0; i < list1.arraySize; i++)
             {
                 for (int j = 0; j < list2.arraySize; j++)
@@ -167,6 +165,50 @@ namespace CustomListClass
             }
 
             return list1;
+        }
+
+        public MyList<T> Zip(MyList<T> list2)
+        {
+            int count = 0;
+            int counter = 0;
+
+            MyList<T> zipList = new MyList<T>();
+
+            if (arraySize <= list2.arraySize)
+            {
+                count = arraySize;
+            }
+            else
+            {
+                count = list2.arraySize;
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                zipList.Add(arrayList[i]);
+                zipList.Add(list2[i]);
+                counter++;
+            }
+
+            if (arraySize < list2.arraySize)
+            {
+                count = list2.arraySize - count;
+                for (int i = 0; i < count; i++)
+                {
+                    zipList.Add(list2[counter]);
+                    counter++;
+                }
+            }
+            else
+            {
+                count = arraySize - count;
+                for (int i = 0; i < count; i++)
+                {
+                    zipList.Add(arrayList[counter]);
+                    counter++;
+                }
+            }
+                return zipList;
         }
     }
 }

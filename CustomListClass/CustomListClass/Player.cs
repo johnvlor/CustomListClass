@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomListClassTest
+namespace CustomListClass
 {
     public class Player
     {
-        string name;
+        public string name;
 
         public Player(string name)
         {

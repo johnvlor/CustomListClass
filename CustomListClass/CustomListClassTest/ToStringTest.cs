@@ -36,5 +36,25 @@ namespace CustomListClassTest
             //Assert     
             Assert.AreEqual(resultList, result);
         }
+
+        [TestMethod]
+        public void ToString_ConvertObject()
+        {
+            MyList<Player> playerList = new MyList<Player>();
+
+            //Arrange
+            Player playerOne = new Player("James");
+            Player playerTwo = new Player("Lebron");
+            playerList.Add(playerOne);
+            playerList.Add(playerTwo);
+            string result;
+            string resultList = "CustomListClass.PlayerCustomListClass.Player";
+
+            //Act
+            result = playerList.ToString();
+
+            //Assert
+            Assert.AreEqual(resultList, result);
+        }
     }
 }

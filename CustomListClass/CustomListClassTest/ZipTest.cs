@@ -7,35 +7,80 @@ namespace CustomListClassTest
     [TestClass]
     public class ZipTest
     {
-        //[TestMethod]
-        //public void Zip_TwoIntList_CombineBothList()
-        //{
-        //    //Arrange
-        //    MyList<int> myListOne = new MyList<int>() { 1, 3, 5, 7 };
-        //    MyList<int> myListTwo = new MyList<int>() { 2, 4, 6 };
-        //    MyList<int> resultList = new MyList<int>() { 1, 2, 3, 4, 5, 6, 7 };
+        [TestMethod]
+        public void Zip_TwoIntList_CombineBothList()
+        {
+            //Arrange
+            MyList<int> myListOne = new MyList<int>() { 1, 3, 5, 7 };
+            MyList<int> myListTwo = new MyList<int>() { 2, 4, 6 };
+            int result = 5;
 
-        //    //Act
-        //    MyList<int> newResultList = myListOne.Zip(myListTwo);
+            //Act
+            MyList<int> newResultList = myListOne.Zip(myListTwo);
 
-        //    //Assert     
-        //    Assert.AreEqual(resultList, newResultList);
-        //}
+            //Assert     
+            Assert.AreEqual(result, newResultList[4]);
+        }
 
-        //[TestMethod]
-        //public void Zip_TwoStringList_CombineBothList()
-        //{
-        //    //Arrange
-        //    MyList<string> myListOne = new MyList<string>() { "a", "b", "c" };
-        //    MyList<string> myListTwo = new MyList<string>() { "A", "B", "C" };
-        //    MyList<string> resultList = new MyList<string>() {"a", "A", "b", "B", "c", "C" };
+        [TestMethod]
+        public void Zip_TwoIntList_ExtraIndexes()
+        {
+            //Arrange
+            MyList<int> myListOne = new MyList<int>() { 1, 3, 5, 7, 9, 11 };
+            MyList<int> myListTwo = new MyList<int>() { 2, 4, 6 };
+            int result = 9;
 
-        //    //Act
-        //    MyList<string> newResultList = myListOne.Zip(myListTwo);
+            //Act
+            MyList<int> newResultList = myListOne.Zip(myListTwo);
 
-        //    //Assert     
-        //    Assert.AreEqual(resultList, newResultList);
-        //}
+            //Assert     
+            Assert.AreEqual(result, newResultList[7]);
+        }
+
+        [TestMethod]
+        public void Zip_TwoIntList_ReturnCount()
+        {
+            //Arrange
+            MyList<int> myListOne = new MyList<int>() { 1, 3, 5, 7 };
+            MyList<int> myListTwo = new MyList<int>() { 2, 4, 6 };
+            int result = 7;
+
+            //Act
+            MyList<int> newResultList = myListOne.Zip(myListTwo);
+
+            //Assert     
+            Assert.AreEqual(result, newResultList.Count);
+        }
+
+        [TestMethod]
+        public void Zip_TwoStringList_CombineBothList()
+        {
+            //Arrange
+            MyList<string> myListOne = new MyList<string>() { "a", "b", "c" };
+            MyList<string> myListTwo = new MyList<string>() { "A", "B", "C" };
+            string result = "B";
+
+            //Act
+            MyList<string> newResultList = myListOne.Zip(myListTwo);
+
+            //Assert     
+            Assert.AreEqual(result, newResultList[3]);
+        }
+
+        [TestMethod]
+        public void Zip_TwoStringList_ReturnCount()
+        {
+            //Arrange
+            MyList<string> myListOne = new MyList<string>() { "a", "b", "c" };
+            MyList<string> myListTwo = new MyList<string>() { "A", "B", "C" };
+            int result = 6;
+
+            //Act
+            MyList<string> newResultList = myListOne.Zip(myListTwo);
+
+            //Assert     
+            Assert.AreEqual(result, newResultList.Count);
+        }
 
         //[TestMethod]
         //public void Zip_TwoObjectList_CombineBothList()

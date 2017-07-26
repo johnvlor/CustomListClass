@@ -83,47 +83,74 @@ namespace CustomListClass
             ////newResult = myNewList.ToString();
             ////Console.WriteLine(newResult);
 
-            MyList<int> myListOne = new MyList<int>() { 0, 1, 2, 3, 4, 5, 6 };
-            Console.WriteLine(myListOne.Count);
-            MyList<int> myListTwo = new MyList<int>() { 6, 7, 8, 9, 10 };
-            MyList<int> myListThree = new MyList<int>() { 11, 12, 13, 14, 15, 16, 17 };
+            //MyList<int> myListOne = new MyList<int>() { 0, 1, 2, 3, 4, 5, 6 };
+            //Console.WriteLine(myListOne.Count);
+            //MyList<int> myListTwo = new MyList<int>() { 6, 7, 8, 9, 10 };
+            //MyList<int> myListThree = new MyList<int>() { 11, 12, 13, 14, 15, 16, 17 };
 
-            MyList<int> resultList = new MyList<int>();
-            resultList = (myListOne + myListTwo) + myListThree;
+            //MyList<int> resultList = new MyList<int>();
+            //resultList = (myListOne + myListTwo) + myListThree;
 
-            Console.WriteLine("result list " + resultList.ToString());
-            Console.WriteLine(resultList.Count);
-            Console.WriteLine(resultList[14]);
+            //Console.WriteLine("result list " + resultList.ToString());
+            //Console.WriteLine(resultList.Count);
+            //Console.WriteLine(resultList[14]);
 
-            for (int i = 0; i < resultList.Count; i++)
+            //for (int i = 0; i < resultList.Count; i++)
+            //{
+            //    Console.WriteLine(i + 1 + " " + resultList[i]);
+            //}
+
+            //int value = 0;
+            //foreach (int number in resultList)
+            //{
+            //    Console.WriteLine("iterator "+number);
+            //    value = number;
+            //}
+
+            //Console.WriteLine(value);
+
+            //MyList<int> myListFour = new MyList<int>() { 0, 1, 2, 3, 4, 5, 100 };
+            //Console.WriteLine(myListFour[0]);
+            //MyList<int> myListFive = new MyList<int>() { 1, 3, 5 };
+            //MyList<int> myListSix = new MyList<int>() { 2, 4};
+            //resultList = myListFour + myListFive;
+            //Console.WriteLine(resultList[0]);
+            //resultList = (myListFour - myListFive) - myListSix;
+            //Console.WriteLine(resultList[0]);
+            //Console.WriteLine("result list " + resultList.ToString());
+            //Console.WriteLine(resultList.Count);
+
+            //for (int i = 0; i < resultList.Count; i++)
+            //{
+
+            //    Console.WriteLine(i+1 + " " + resultList[i]);
+            //}
+
+            //MyList<Player> playerList = new MyList<Player>();
+            //Player playerOne = new Player("James");
+            //Player playerTwo = new Player("Lebron");
+
+            //MyList<Player> playerOneList = new MyList<Player>();
+            //MyList<Player> playerTwoList = new MyList<Player>();
+
+            //playerOneList.Add(playerOne);
+            //playerTwoList.Add(playerTwo);
+
+            //playerList = playerOneList + playerTwoList;
+
+            //Console.WriteLine(playerList);
+            //Console.WriteLine(playerOneList);
+
+            MyList<int> myListOdd = new MyList<int>() { 1, 3, 5};
+            MyList<int> myListEven = new MyList<int>() { 2, 4, 6, 8, 10, 12, 14, 16 };
+
+            MyList<int> zipResult = myListOdd.Zip(myListEven);
+            Console.WriteLine(zipResult.Count);
+
+            for (int i = 0; i < zipResult.Count; i++)
             {
-                Console.WriteLine(i + 1 + " " + resultList[i]);
-            }
 
-            int value = 0;
-            foreach (int number in resultList)
-            {
-                Console.WriteLine("iterator "+number);
-                value = number;
-            }
-
-            Console.WriteLine(value);
-
-            MyList<int> myListFour = new MyList<int>() { 0, 1, 2, 3, 4, 5, 100 };
-            Console.WriteLine(myListFour[0]);
-            MyList<int> myListFive = new MyList<int>() { 1, 3, 5 };
-            MyList<int> myListSix = new MyList<int>() { 2, 4};
-            resultList = myListFour + myListFive;
-            Console.WriteLine(resultList[0]);
-            resultList = (myListFour - myListFive) - myListSix;
-            Console.WriteLine(resultList[0]);
-            Console.WriteLine("result list " + resultList.ToString());
-            Console.WriteLine(resultList.Count);
-
-            for (int i = 0; i < resultList.Count; i++)
-            {
-
-                Console.WriteLine(i+1 + " " + resultList[i]);
+                Console.WriteLine(i + 1 + " " + zipResult[i]);
             }
 
             Console.ReadKey();
