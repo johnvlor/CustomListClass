@@ -207,9 +207,9 @@ namespace CustomListClass
             return zipList;
         }
 
-        public void Sort()
+        public void AscendingSort()
         {
-            T[] tempArray = new T[arraySize];
+            T[] tempArray = new T[arrayCapacity];
 
             for (int i = 0; i < arraySize; i++)
             {
@@ -222,6 +222,34 @@ namespace CustomListClass
                     for (int j = 0; j < tempArray.Length; j++)
                     {
                         if (Compare<T>(arrayList[i], tempArray[j]) < 0)
+                        {
+                            SwapFunction<T>(ref arrayList[i], ref tempArray[j]);
+                        }
+                        else
+                        {
+                            tempArray[i] = arrayList[i];
+                        }
+                    }
+                }
+            }
+            arrayList = tempArray;
+        }
+
+        public void DescendingSort()
+        {
+            T[] tempArray = new T[arrayCapacity];
+
+            for (int i = 0; i < arraySize; i++)
+            {
+                if (i == 0)
+                {
+                    tempArray[i] = arrayList[i];
+                }
+                else
+                {
+                    for (int j = 0; j < tempArray.Length; j++)
+                    {
+                        if (Compare<T>(arrayList[i], tempArray[j]) >= 0)
                         {
                             SwapFunction<T>(ref arrayList[i], ref tempArray[j]);
                         }
