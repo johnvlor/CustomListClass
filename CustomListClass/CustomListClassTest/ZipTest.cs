@@ -82,26 +82,56 @@ namespace CustomListClassTest
             Assert.AreEqual(result, newResultList.Count);
         }
 
-        //[TestMethod]
-        //public void Zip_TwoObjectList_CombineBothList()
-        //{
-        //    MyList<Player> playerList = new MyList<Player>();
+        [TestMethod]
+        public void Zip_ExtraStringIndexes_ReturnCount()
+        {
+            //Arrange
+            MyList<string> myListOne = new MyList<string>() { "a", "b", "c" };
+            MyList<string> myListTwo = new MyList<string>() { "A", "B", "C", "X", "Y", "Z" };
+            int result = 9;
 
-        //    //Arrange
-        //    Player playerOne = new Player("James");
-        //    Player playerTwo = new Player("Lebron");
+            //Act
+            MyList<string> newResultList = myListOne.Zip(myListTwo);
 
-        //    MyList<Player> playerOneList = new MyList<Player>();
-        //    MyList<Player> playerTwoList = new MyList<Player>();
+            //Assert     
+            Assert.AreEqual(result, newResultList.Count);
+        }
 
-        //    playerOneList.Add(playerOne);
-        //    playerTwoList.Add(playerTwo);
+        [TestMethod]
+        public void Zip_SwapListPosition_AddsOneIntoTwo()
+        {
+            //Arrange
+            MyList<string> myListOne = new MyList<string>() { "a", "b", "c" };
+            MyList<string> myListTwo = new MyList<string>() { "A", "B", "C", "X", "Y", "Z" };
+            string result = "B";
 
-        //    //Act
-        //    playerList = playerOneList.Zip(playerTwoList);
+            //Act
+            MyList<string> newResultList = myListTwo.Zip(myListOne);
 
-        //    //Assert     
-        //    Assert.AreEqual(playerTwoList, playerList[2]);
-        //}
+            //Assert     
+            Assert.AreEqual(result, newResultList[2]);
+        }
+
+        [TestMethod]
+        public void Zip_TwoObjectList_CombineBothList()
+        {
+            MyList<Player> playerList = new MyList<Player>();
+
+            //Arrange
+            Player playerOne = new Player("James");
+            Player playerTwo = new Player("Lebron");
+
+            MyList<Player> playerOneList = new MyList<Player>();
+            MyList<Player> playerTwoList = new MyList<Player>();
+
+            playerOneList.Add(playerOne);
+            playerTwoList.Add(playerTwo);
+
+            //Act
+            playerList = playerOneList.Zip(playerTwoList);
+
+            //Assert     
+            Assert.AreEqual(playerTwo, playerList[1]);
+        }
     }
 }

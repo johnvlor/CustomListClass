@@ -55,6 +55,7 @@
     <Compile Include="OverloadOperatorTest.cs" />
     <Compile Include="ToStringTest.cs" />
     <Compile Include="IteratorTest.cs" />
+    <Compile Include="SortTest.cs" />
     <Compile Include="ZipTest.cs" />
   </ItemGroup>
   <ItemGroup>

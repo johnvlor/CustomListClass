@@ -79,6 +79,21 @@ namespace CustomListClassTest
         }
 
         [TestMethod]
+        public void Remove_EmptyString_ReturnNullIndex()
+        {
+            MyList<string> myList = new MyList<string>();
+
+            //Arrange
+            string result = null;
+
+            //Act
+            myList.Remove(null);
+
+            //Assert
+            Assert.AreEqual(result, myList[0]);
+        }
+
+        [TestMethod]
         public void Remove_StringIndex_NewLastIndex()
         {
             MyList<string> myList = new MyList<string>();

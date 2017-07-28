@@ -11,21 +11,7 @@ namespace CustomListClass
         static void Main(string[] args)
         {
             //MyList<int> myList = new MyList<int>();
-            //Console.WriteLine(myList.Count());
-
-            //Console.WriteLine("Count " + myList.Count());
-            //myList.Add(1);
-            //myList.Add(2);
-            //myList.Add(3);
-            //Console.WriteLine("Count " + myList.Count());
-            //myList.Add(4);
-            //myList.Add(5);
-            //myList.Add(6);
-            //myList.Add(7);
-            //Console.WriteLine("Count " + myList.Count());
-            //myList.Add(8);
-            //myList.Add(9);
-            //Console.WriteLine("Count " + myList.Count());
+            //Console.WriteLine(myList[0]);
 
             //int num = 10;
 
@@ -47,7 +33,7 @@ namespace CustomListClass
             //Console.WriteLine("Count " + myList.Count);
             //Console.WriteLine(myList.ToString());
 
-            //myList.Remove(1);
+            //myList.Remove(0);
             //myList.Remove(2);
             //myList.Remove(7);
             //myList.Remove(9);
@@ -69,19 +55,22 @@ namespace CustomListClass
             //Console.WriteLine(newStringResult);
 
             //myStringList.Remove("DaddyFinger");
+            //Console.WriteLine(myStringList[0]);
             //newStringResult = myStringList.ToString();
             //Console.WriteLine(newStringResult);
 
+            //MyList<string> myStringListTwo = new MyList<string>() { "A", "B", "C", "X", "Y", "Z" };
+            //myStringListTwo.Remove("A");
+            //myStringListTwo.Remove("X");
+            //newStringResult = myStringListTwo.ToString();
+            //Console.WriteLine(newStringResult);
 
             //MyList<int> myNewList = new MyList<int>() { 0, 1, 2, 3, 4, 5 };
             //Console.WriteLine(myNewList.Count);
-            ////Console.WriteLine(myNewList[4]);
-            ////Console.WriteLine(myNewList[5]);
-            ////Console.WriteLine(myNewList[2]);
-            ////string newResult;
+            //string newResult;
 
-            ////newResult = myNewList.ToString();
-            ////Console.WriteLine(newResult);
+            //newResult = myNewList.ToString();
+            //Console.WriteLine(newResult);
 
             //MyList<int> myListOne = new MyList<int>() { 0, 1, 2, 3, 4, 5, 6 };
             //Console.WriteLine(myListOne.Count);
@@ -103,7 +92,7 @@ namespace CustomListClass
             //int value = 0;
             //foreach (int number in resultList)
             //{
-            //    Console.WriteLine("iterator "+number);
+            //    Console.WriteLine("iterator " + number);
             //    value = number;
             //}
 
@@ -112,7 +101,7 @@ namespace CustomListClass
             //MyList<int> myListFour = new MyList<int>() { 0, 1, 2, 3, 4, 5, 100 };
             //Console.WriteLine(myListFour[0]);
             //MyList<int> myListFive = new MyList<int>() { 1, 3, 5 };
-            //MyList<int> myListSix = new MyList<int>() { 2, 4};
+            //MyList<int> myListSix = new MyList<int>() { 2, 4 };
             //resultList = myListFour + myListFive;
             //Console.WriteLine(resultList[0]);
             //resultList = (myListFour - myListFive) - myListSix;
@@ -123,34 +112,64 @@ namespace CustomListClass
             //for (int i = 0; i < resultList.Count; i++)
             //{
 
-            //    Console.WriteLine(i+1 + " " + resultList[i]);
+            //    Console.WriteLine(i + 1 + " " + resultList[i]);
             //}
 
-            //MyList<Player> playerList = new MyList<Player>();
-            //Player playerOne = new Player("James");
-            //Player playerTwo = new Player("Lebron");
+            MyList<Player> playerList = new MyList<Player>();
+            Player playerOne = new Player("James");
+            Player playerTwo = new Player("Lebron");
 
-            //MyList<Player> playerOneList = new MyList<Player>();
-            //MyList<Player> playerTwoList = new MyList<Player>();
+            MyList<Player> playerOneList = new MyList<Player>();
+            MyList<Player> playerTwoList = new MyList<Player>();
 
-            //playerOneList.Add(playerOne);
-            //playerTwoList.Add(playerTwo);
+            playerOneList.Add(playerOne);
+            playerTwoList.Add(playerTwo);
 
+            playerList.Sort();
             //playerList = playerOneList + playerTwoList;
 
-            //Console.WriteLine(playerList);
-            //Console.WriteLine(playerOneList);
+            Console.WriteLine(playerList);
+            Console.WriteLine(playerOneList);
 
-            MyList<int> myListOdd = new MyList<int>() { 1, 3, 5};
-            MyList<int> myListEven = new MyList<int>() { 2, 4, 6, 8, 10, 12, 14, 16 };
+            //MyList<int> myListOdd = new MyList<int>() { 1, 3, 5 };
+            //MyList<int> myListEven = new MyList<int>() { 2, 4, 6, 8, 10, 12, 14, 16 };
 
-            MyList<int> zipResult = myListOdd.Zip(myListEven);
-            Console.WriteLine(zipResult.Count);
+            //MyList<int> zipResult = myListOdd.Zip(myListEven);
+            //Console.WriteLine(zipResult.Count);
 
-            for (int i = 0; i < zipResult.Count; i++)
+            //for (int i = 0; i < zipResult.Count; i++)
+            //{
+
+            //    Console.WriteLine(i + 1 + " " + zipResult[i]);
+            //}
+
+            //MyList<string> myListOne = new MyList<string>() { "a", "b", "c" };
+            //MyList<string> myListTwo = new MyList<string>() { "A", "B", "C", "X", "Y", "Z" };
+
+            //MyList<string> newZipList = myListTwo.Zip(myListOne);
+
+            //for (int i = 0; i < newZipList.Count; i++)
+            //{
+
+            //    Console.WriteLine(i + 1 + " " + newZipList[i]);
+            //}
+
+            MyList<int> mySortList = new MyList<int>() { 4, 2, 12, 7, 1, 8, 0 };
+            mySortList.Sort();
+
+            for (int i = 0; i < mySortList.Count; i++)
             {
 
-                Console.WriteLine(i + 1 + " " + zipResult[i]);
+                Console.WriteLine(mySortList[i]);
+            }
+
+            MyList<string> mySortStringList = new MyList<string>() { "X", "Y", "Z", "b", "A", "B", "C", "a" };
+            mySortStringList.Sort();
+
+            for (int i = 0; i < mySortStringList.Count; i++)
+            {
+
+                Console.WriteLine(mySortStringList[i]);
             }
 
             Console.ReadKey();

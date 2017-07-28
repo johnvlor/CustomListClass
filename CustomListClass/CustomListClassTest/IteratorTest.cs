@@ -23,5 +23,22 @@ namespace CustomListClassTest
             //Assert     
             Assert.AreEqual(result, myList[5]);
         }
+
+        [TestMethod]
+        public void AddString_IterateList_AssignsEachIndex()
+        {
+            //Arrange
+            MyList<string> myList = new MyList<string>() { "A", "B", "C", "X", "Y", "Z" };
+            string result = "Z";
+
+            //Act
+            foreach (string letter in myList)
+            {
+                result = letter;
+            }
+
+            //Assert     
+            Assert.AreEqual(result, myList[5]);
+        }
     }
 }

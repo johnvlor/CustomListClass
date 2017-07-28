@@ -18,7 +18,10 @@ namespace CustomListClass
         {
             get
             {
-                return arrayList[index];
+                if (index >= arrayList.Length)
+                    return default(T);
+                else
+                    return arrayList[index];
             }
             set
             {
@@ -79,34 +82,28 @@ namespace CustomListClass
             }
 
             return arrayCapacity;
-
         }
 
         public void Remove(T item)
         {
-            int count = 0;
+            int indexCount = 0;
 
             T[] tempArray = new T[arrayCapacity];
 
             for (int i = 0; i < arraySize; i++)
             {
-                if (Equal<T>(item, arrayList[count]) == false)
+                if (arrayList[indexCount].Equals(item) == false)
                 {
-                    tempArray[i] = arrayList[count];
+                    tempArray[i] = arrayList[indexCount];
                 }
                 else
                 {
                     i--;
                     arraySize--;
                 }
-                count++;
+                indexCount++;
             }
             arrayList = tempArray;
-        }
-
-        public static bool Equal<T>(T item1, T item2)
-        {
-            return EqualityComparer<T>.Default.Equals(item1, item2);
         }
 
         public override string ToString()
@@ -127,14 +124,11 @@ namespace CustomListClass
             {
                 yield return arrayList[i];
             }
-
-            //throw new NotImplementedException();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
-            //throw new NotImplementedException();
         }
 
         public static MyList<T> operator +(MyList<T> list1, MyList<T> list2)
@@ -156,12 +150,9 @@ namespace CustomListClass
 
         public static MyList<T> operator -(MyList<T> list1, MyList<T> list2)
         {            
-            for (int i = 0; i < list1.arraySize; i++)
+            for (int i = 0; i < list2.arraySize; i++)
             {
-                for (int j = 0; j < list2.arraySize; j++)
-                {
-                    list1.Remove(list2[j]);
-                }
+                list1.Remove(list2[i]);
             }
 
             return list1;
@@ -169,46 +160,92 @@ namespace CustomListClass
 
         public MyList<T> Zip(MyList<T> list2)
         {
-            int count = 0;
-            int counter = 0;
+            int indexCount = 0;
+            int remainingIndex = 0;
 
             MyList<T> zipList = new MyList<T>();
 
             if (arraySize <= list2.arraySize)
             {
-                count = arraySize;
+                indexCount = arraySize;
             }
             else
             {
-                count = list2.arraySize;
+                indexCount = list2.arraySize;
             }
 
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < indexCount; i++)
             {
                 zipList.Add(arrayList[i]);
                 zipList.Add(list2[i]);
-                counter++;
+                remainingIndex++;
             }
 
-            if (arraySize < list2.arraySize)
+            if (arraySize == list2.arraySize)
             {
-                count = list2.arraySize - count;
-                for (int i = 0; i < count; i++)
+                return zipList;
+            }
+            else if (arraySize < list2.arraySize)
+            {
+                indexCount = list2.arraySize - indexCount;
+                for (int i = 0; i < indexCount; i++)
                 {
-                    zipList.Add(list2[counter]);
-                    counter++;
+                    zipList.Add(list2[remainingIndex]);
+                    remainingIndex++;
                 }
             }
             else
             {
-                count = arraySize - count;
-                for (int i = 0; i < count; i++)
+                indexCount = arraySize - indexCount;
+                for (int i = 0; i < indexCount; i++)
                 {
-                    zipList.Add(arrayList[counter]);
-                    counter++;
+                    zipList.Add(arrayList[remainingIndex]);
+                    remainingIndex++;
                 }
             }
-                return zipList;
+
+            return zipList;
+        }
+
+        public void Sort()
+        {
+            T[] tempArray = new T[arraySize];
+
+            for (int i = 0; i < arraySize; i++)
+            {
+                if (i == 0)
+                {
+                    tempArray[i] = arrayList[i];
+                }
+                else
+                {
+                    for (int j = 0; j < tempArray.Length; j++)
+                    {
+                        if (Compare<T>(arrayList[i], tempArray[j]) < 0)
+                        {
+                            SwapFunction<T>(ref arrayList[i], ref tempArray[j]);
+                        }
+                        else
+                        {
+                            tempArray[i] = arrayList[i];
+                        }
+                    }
+                }
+            }
+            arrayList = tempArray;
+        }
+
+        public void SwapFunction<T>(ref T item1, ref T item2)
+        {
+            T temporaryValue;
+            temporaryValue = item1;
+            item1 = item2;
+            item2 = temporaryValue;
+        }
+
+        public static int Compare<T>(T item1, T item2)
+        {
+            return Comparer<T>.Default.Compare(item1, item2);
         }
     }
 }
